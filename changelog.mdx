@@ -1,0 +1,169 @@
+---
+title: Changelog
+description: Version history with 2-3 recent updates to the platform.
+---
+
+## Recent Platform Updates
+
+Stay informed about the latest releases for Ravi Kumar's comics platform. Each update includes new features like custom comics, library enhancements, and performance improvements. Review the details below to understand changes and upgrade smoothly.
+
+<Callout kind="info">
+  Bookmark this page and subscribe to notifications for automatic alerts on new releases.
+</Callout>
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added Psychology and Technology comic categories for expanded learning paths.
+- Introduced print-on-demand customization: personalize comics with your child's name and photo as the lead character.
+- New parent dashboard to track reading progress and EQ development metrics.
+
+## Improvements
+
+- Enhanced library search with filters for age, topic (Science, Business, History), and difficulty.
+- Optimized mobile experience for seamless reading on tablets and phones.
+
+## Bug Fixes
+
+- Fixed occasional crashes during comic downloads.
+- Resolved sharing issues on social platforms.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Launched "For Parents" section with guides on using comics for business and science education.
+- Integrated EQ-building activities tied to each comic storyline.
+
+## Bug Fixes
+
+- Corrected authentication glitches during sign-in on Safari browsers.
+- Improved webhook reliability for custom notifications.
+
+## Migration Notes
+
+No breaking changes. Update your app config if using webhooks:
+
+````javascript
+// Update webhook endpoint
+const webhookUrl = "https://your-webhook-url.com/webhook";
+````
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Core library launch with Science, History, and Business comics curated by IITians and MBAs.
+- Basic customization: choose your child as hero in select stories.
+- Home delivery for printed comics.
+
+## Breaking Changes
+
+- Updated API base URL from beta endpoints to `https://api.example.com/v1`.
+
+## Migration Instructions
+
+See the upgrade guide below.
+
+</Update>
+
+## Upgrading to the Latest Version
+
+Follow these steps to migrate your integration or app to v1.2.0.
+
+<Steps>
+  <Step title="Backup Your Data" icon="database">
+
+  Export your library favorites and custom comics.
+
+  ```
+  # Use the export API
+  curl -H "Authorization: Bearer YOUR_TOKEN" https://api.example.com/export
+  ```
+
+  </Step>
+  <Step title="Update Dependencies" icon="package">
+
+  Refresh your client libraries.
+
+  <Tabs>
+    <Tab title="npm" icon="package">
+````bash
+npm update ravi-kumar-sdk@latest
+````
+    </Tab>
+    <Tab title="yarn" icon="package">
+````bash
+yarn upgrade ravi-kumar-sdk@latest
+````
+    </Tab>
+  </Tabs>
+
+  </Step>
+  <Step title="Test Customization" icon="edit-3">
+
+  Verify personalized comics render correctly with new photo upload feature.
+
+  </Step>
+  <Step title="Deploy" icon="upload">
+
+  Push changes and monitor for errors.
+
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Test in staging first. Use `https://api.example.com/staging` for previews.
+</Callout>
+
+## Future Roadmap
+
+Track upcoming features visually.
+
+<Board title="Q4 2024 Roadmap">
+  <BoardColumn title="Planned" color="0" icon="calendar">
+    <BoardCard title="AI Comic Generator" description="Generate stories based on child interests" icon="zap" dueDate="2024-12-15" />
+    <BoardCard title="Multi-language Support" description="Translate comics to regional languages" icon="globe" />
+  </BoardColumn>
+  <BoardColumn title="In Progress" color="1" icon="loader-2">
+    <BoardCard title="Advanced EQ Analytics" description="Detailed progress reports for parents" icon="bar-chart-3" author="Dev Team" />
+  </BoardColumn>
+  <BoardColumn title="Completed" color="2" icon="check-circle">
+    <BoardCard title="Print on Demand v2" description="Faster home delivery integration" createdAt="2024-10-01" />
+  </BoardColumn>
+</Board>
+
+## Resources
+
+<Columns cols={2}>
+  <Card title="Full Release Notes" icon="book-open" href="https://docs.example.com/releases">
+    Detailed technical specs for all versions.
+  </Card>
+  <Card title="Community Forum" icon="users" href="https://forum.example.com" target="_blank" horizontal>
+    Discuss changes and share feedback.
+  </Card>
+  <Card title="Support" icon="headphones" href="/support">
+    Get help with upgrades.
+  </Card>
+  <Card title="API Reference" icon="code" href="/api-reference" horizontal>
+    Updated endpoints and examples.
+  </Card>
+</Columns>
+
+<Expandable title="Advanced Migration for Integrations" default-open="false">
+
+If you maintain a custom integration:
+
+1. Update base URL: `https://api.example.com/v1`
+2. Regenerate tokens with new scopes: `read:comics customize:print`
+
+```
+const api = new RaviKumarSDK({ baseURL: "https://api.example.com/v1", token: "YOUR_TOKEN" });
+```
+
+</Expandable>
